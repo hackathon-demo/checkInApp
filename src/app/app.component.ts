@@ -140,7 +140,7 @@ export class AppComponent {
         Promise<PromiseResult<AWS.Rekognition.SearchFacesByImageResponse, AWS.AWSError>> {
 
             var params = {
-                CollectionId: 'cx-demo-rekognition',
+                CollectionId: 'rekognition-demo-collection',
                 Image: {
                     Bytes: imageBytes
                 }
@@ -214,7 +214,7 @@ export class AppComponent {
         var result = await response.json();
         console.log(result);
         
-        // TODO: Add conditional statement before returning success message
+        //TODO: Add conditional statement before returning success message
         this.status.nativeElement.innerHTML = "You have been checked in.";
       }  
     }
