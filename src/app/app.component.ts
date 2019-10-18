@@ -96,6 +96,9 @@ export class AppComponent {
         this.SearchFace(this.dataURItoBlob(dataURI)).then(
             (data) => {
 
+              console.log(data);
+
+              if (data.FaceMatches.length > 0){
                 this.identifiedUserName = [];
                 
                 this.identifiedUserName.push(this.formatName(data.FaceMatches[0].Face.ExternalImageId).split(' ')[0]);
@@ -108,8 +111,12 @@ export class AppComponent {
 
                 this.retrieveBooking(this.bookingReference.nativeElement.value, this.identifiedUserName[1], this.identifiedUserName[0]);
 
+              }else{
+                this.msg.nativeElement.innerHTML = "Sorry, the person cannot be identified.";
+              }
             }).catch((err) => {
-            console.error(err);
+              console.error(err);
+              this.msg.nativeElement.innerHTML = "Cannot find matched Faces.";
         });
 
     }
@@ -207,7 +214,7 @@ export class AppComponent {
         var result = await response.json();
         console.log(result);
         
-        //TODO: Add conditional statement before returning success message
+        // TODO: Add conditional statement before returning success message
         this.status.nativeElement.innerHTML = "You have been checked in.";
       }  
     }
