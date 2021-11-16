@@ -19,7 +19,7 @@
     "@angular/platform-browser": "~8.2.3",
     "@angular/platform-browser-dynamic": "~8.2.3",
     "@angular/router": "~8.2.3",
-    "aws-sdk": "^2.552.0",
+    "aws-sdk": "^2.814.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
